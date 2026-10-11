@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ScreenScope — What Is My Screen Size? Live Screen Resolution & Viewport Checker</title>
+<meta name="description" content="Instantly see your screen size, resolution, viewport, device pixel ratio, orientation and colour depth — updating live as you resize. Copy a shareable device info card.">
+<link rel="canonical" href="https://screenscope.fixoraa.tech/">
+<meta property="og:title" content="ScreenScope — What Is My Screen Size? Live Screen Resolution & Viewport Checker">
+<meta property="og:description" content="Instantly see your screen size, resolution, viewport, device pixel ratio, orientation and colour depth — updating live as you resize. Copy a shareable device info card.">
+<meta property="og:url" content="https://screenscope.fixoraa.tech/">
+<meta property="og:type" content="website">
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+:root{--pri:#0D9488;--acc:#7C3AED;--bgc:#F0FDFA}
+body{background:var(--bgc);font-family:'Segoe UI',system-ui,sans-serif}
+.pri{background:var(--pri)} .prit{color:var(--pri)} .acct{color:var(--acc)}
+.btn{background:var(--pri);color:#fff;padding:.6rem 1.2rem;border-radius:.6rem;font-weight:600;cursor:pointer;border:none}
+.btn:hover{opacity:.9} .btn2{background:var(--acc);color:#111;padding:.6rem 1.2rem;border-radius:.6rem;font-weight:600;cursor:pointer;border:none}
+input,select,textarea{border:1.5px solid #cbd5e1;border-radius:.55rem;padding:.55rem .7rem;width:100%;background:#fff;color:#0f172a}
+input:focus,select:focus,textarea:focus{outline:2px solid var(--pri);border-color:transparent}
+label{font-size:.83rem;font-weight:600;display:block;margin-bottom:.3rem}
+.card{background:#fff;border-radius:1rem;box-shadow:0 8px 30px rgba(15,23,42,.08);padding:1.4rem}
+article p{margin:.7rem 0;line-height:1.75;color:#334155}
+article h2{font-size:1.45rem;font-weight:800;margin:1.6rem 0 .4rem;color:#0f172a}
+.faq{background:#fff;border-radius:.7rem;padding:.9rem 1.1rem;margin:.55rem 0;box-shadow:0 2px 10px rgba(15,23,42,.05)}
+.faq summary{font-weight:700;cursor:pointer}
+table.dt{width:100%;border-collapse:collapse} table.dt th,table.dt td{border:1px solid #e2e8f0;padding:.45rem .6rem;text-align:left;font-size:.9rem}
+table.dt th{background:#f1f5f9}
+
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "ScreenScope", "url": "https://screenscope.fixoraa.tech/", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "description": "Instantly see your screen size, resolution, viewport, device pixel ratio, orientation and colour depth \u2014 updating live as you resize. Copy a shareable device info card."}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What is my screen size in inches?", "acceptedAnswer": {"@type": "Answer", "text": "Browsers cannot measure physical inches directly. Your resolution and pixel ratio (shown above) identify the panel class \u2014 for example, 390\u00d7844 CSS pixels at DPR 3 is a modern large iPhone. Check your device settings or model specs for the exact diagonal."}}, {"@type": "Question", "name": "What is the difference between screen resolution and viewport?", "acceptedAnswer": {"@type": "Answer", "text": "Resolution is the whole display; the viewport is the rectangle the web page actually receives, after browser toolbars, scrollbars and split-screen take their share. Websites respond to the viewport \u2014 it is the number designers need."}}, {"@type": "Question", "name": "Why is my phone's resolution lower than advertised?", "acceptedAnswer": {"@type": "Answer", "text": "It is not \u2014 the phone reports CSS pixels, and the device pixel ratio (often 3) multiplies them into the advertised physical pixels. 390\u00d7844 at DPR 3 is a 1170\u00d72532 panel."}}, {"@type": "Question", "name": "What does device pixel ratio (DPR) mean?", "acceptedAnswer": {"@type": "Answer", "text": "How many physical pixels paint one CSS pixel. DPR 2 or 3 makes text and images dramatically sharper, and means images should be supplied at 2\u20133\u00d7 their display size to look crisp."}}, {"@type": "Question", "name": "How do I tell support what device I am using?", "acceptedAnswer": {"@type": "Answer", "text": "Use the 'Copy device info card' button \u2014 it packages your screen, viewport, pixel ratio, orientation and browser into one paste-able block, which is exactly what support and developers need."}}, {"@type": "Question", "name": "Why do the numbers change when I resize the window?", "acceptedAnswer": {"@type": "Answer", "text": "Because the viewport is live: it is defined by your current window, not your hardware. Dragging the window, rotating the device or toggling split-screen all change it, and this page updates instantly."}}]}</script>
+</head>
+<body id="top">
+<header class="sticky top-0 z-40 shadow-md" style="background:#042F2E">
+  <div class="mx-auto max-w-6xl px-4 sm:px-6 py-3 flex items-center justify-between">
+    <a href="#top" class="text-xl font-extrabold tracking-tight" style="color:#F0FDFA">🖥 ScreenScope</a>
+    <nav class="flex gap-5 text-sm font-semibold" style="color:#F0FDFA">
+      <a href="#top" class="hover:underline">Home</a>
+      <a href="https://fixoraa.tech" class="hover:underline">More Tools</a>
+    </nav>
+  </div>
+</header>
+<div class="no-print mx-auto max-w-6xl px-4 sm:px-6 pt-4" role="complementary" aria-label="Advertisement">
+  <div class="mx-auto text-center" style="max-width:728px">
+    <span class="block text-[10px] tracking-[0.18em] uppercase text-slate-400 mb-1.5">Advertisement</span>
+    <div class="flex justify-center overflow-hidden">
+      <div class="origin-top scale-[0.44] sm:scale-100 shrink-0">
+        <script>
+          atOptions = { 'key' : '4e68ac77881c17fe128a46565d9a4e8c', 'format' : 'iframe', 'height' : 90, 'width' : 728, 'params' : {} };
+        </script>
+        <script src="https://www.highrevenueformat.com/4e68ac77881c17fe128a46565d9a4e8c/invoke.js"></script>
+      </div>
+    </div>
+  </div>
+</div>
+<main class="mx-auto max-w-6xl px-4 sm:px-6 py-8">
+  <div class="text-center mb-6">
+    <h1 class="text-3xl sm:text-4xl font-extrabold" style="color:#0f172a">What Is My Screen Size?</h1>
+    <p class="mt-2 text-slate-600 max-w-2xl mx-auto">Your live numbers are below — physical screen resolution, browser viewport, pixel ratio, orientation and more, refreshed the instant you resize or rotate. Copy the info card when a developer, designer or support agent asks 'what device are you on?'</p>
+    <span class="inline-block mt-3 px-3 py-1 rounded-full text-xs font-bold text-white pri">✓ Unlimited Free Usage — No Signup, No Watermark</span>
+  </div>
+  <div class="card">
+  <div class="grid grid-cols-2 md:grid-cols-3 gap-3 text-center" id="grid"></div>
+  <div class="flex gap-3 mt-4 flex-wrap"><button class="btn" onclick="copyCard()">📋 Copy device info card</button><button class="btn2" onclick="update()">↻ Refresh now</button></div>
+  <div id="copied" class="text-sm font-semibold prit mt-2"></div>
+ </div>
+ <div class="card mt-6"><h3 class="font-bold mb-2">How you compare — common devices</h3><div class="overflow-x-auto"><table class="dt" id="cmp"></table></div></div>
+</main>
+<div class="no-print mx-auto max-w-6xl px-4 sm:px-6 pb-4" role="complementary" aria-label="Advertisement">
+  <div class="mx-auto text-center" style="max-width:728px">
+    <span class="block text-[10px] tracking-[0.18em] uppercase text-slate-400 mb-1.5">Advertisement</span>
+    <div class="flex justify-center overflow-hidden">
+      <script async src="https://js.wpadmngr.com/static/adManager.js" data-admpid="464498"></script>
+    </div>
+  </div>
+</div>
+<section class="mx-auto max-w-4xl px-4 sm:px-6 pb-6">
+  <article>
+  <h2>Five different 'screen sizes', one honest answer</h2>
+<p>Ask 'what is my screen size?' and you have actually asked five questions. There is the physical panel — the diagonal inches on the box. There is the screen resolution in hardware pixels — the grid the display can truly light up. There is the CSS or logical resolution, the smaller, friendlier number websites are laid out against. There is the window size, and inside it the viewport — the rectangle your page actually gets, after browser chrome, scrollbars and split-screen have taken their shares. ScreenScope reports all of them live, because each one is the 'right' answer for a different person: the shopper wants inches, the designer wants the viewport, the developer wants the pixel ratio, and support wants the whole card at once.</p>
+<p>Confusion between these numbers causes real-world friction daily. A user reports a site 'broken on my 1920 screen' while the developer tests a 1920 viewport — but the user's browser, docked at half a 4K panel with 200 percent scaling, offered the site barely 960 CSS pixels. Nobody was lying; everybody was measuring something different. The fix is a shared readout, which is what this page is for.</p>
+<h2>Device pixel ratio: the multiplier that explains modern screens</h2>
+<p>Modern displays pack far more hardware pixels than layout pixels. The device pixel ratio (DPR) is the exchange rate: a DPR of 2 means each CSS pixel is painted on a 2×2 block of physical pixels; a DPR of 3, common on flagship phones, means nine physical pixels serve one layout pixel. This is why a phone can claim a 1170×2532 panel yet present a 390×844 viewport — and why images prepared at exactly viewport size look soft on modern screens. Designers export at 2× or 3× precisely to feed this multiplier.</p>
+<p>ScreenScope shows your DPR prominently because it silently governs so much: whether text looks print-sharp, why a 'small' screenshot file is enormous, and how games and canvas apps should size their drawing surfaces. If you build for the web, the rule that follows is simple — lay out in CSS pixels, render images in physical pixels, and let the ratio mediate between them.</p>
+<h2>Viewport: the only size your website ever sees</h2>
+<p>When developers say a design 'breaks at 768', they mean viewport width — the inner rectangle reported here, updating in real time as you drag your window edge or rotate your phone. Try it: resize this window slowly and watch the number chase your cursor. That live rectangle is what media queries respond to, what determines whether a hamburger menu appears, and what a screenshot of 'the site on my screen' actually captures. The gap between screen and viewport — eaten by taskbars, browser toolbars, notches and split-screen — is why two people with identical laptops can see different websites.</p>
+<p>Mobile adds a twist worth knowing: phone browsers shrink and grow their toolbars as you scroll, so the viewport height breathes during use. Well-built sites tolerate that breathing; poorly built ones jump and jitter. If a site misbehaves on your phone, the viewport figures on this page — not the model name — are the diagnostically useful facts to report.</p>
+<h2>Orientation, colour depth and touch: the supporting cast</h2>
+<p>Orientation sounds trivial until a tablet kiosk, a foldable phone or a car display enters the story: layouts must survive being square-ish, suddenly wide, or rotated by a passenger. ScreenScope reads orientation from the live dimensions, so it stays truthful on devices that defy their category. Colour depth — almost universally 24-bit today, sometimes 30 on HDR panels — tells you how many colours the panel can address; it matters to photographers and video work, and almost never to anyone else, which is itself worth knowing before paying for it.</p>
+<p>Touch support completes the practical picture: whether the device accepts touch at all, and how many simultaneous points it tracks. Hover-dependent menus, tiny tap targets and drag gestures are designed against assumptions these numbers expose. When a support agent asks you to open a page like this, they are not stalling — they are reading the six numbers that predict most 'it looks wrong on my screen' reports.</p>
+<h2>How to use your numbers when buying or building</h2>
+<p>Buying a monitor? Ignore the inch count until you know the resolution and the scaling your operating system will apply at your viewing distance — a 27-inch 1080p panel and a 27-inch 4K panel share a size and nothing else; text clarity, usable workspace and price diverge completely. Building a site? Design mobile-first against a 360-pixel viewport, verify at the common widths in the comparison table below, and never trust a single device — your own screen is the least representative test environment you own.</p>
+<p>The comparison table exists for that humility: it places your live viewport beside the devices your visitors statistically use. If your window is 2560 wide, you are designing from the penthouse; most of your audience is in the 360–430 range, one-handed, on a train. Check the layout there — or drag your window down to that width and watch this page adapt — before believing anything is finished.</p>
+<h2>A note on what this page cannot see</h2>
+<p>Privacy-shaped browsers deliberately blur some fingerprints: the user-agent string is increasingly generic, and true physical panel size cannot be derived from web APIs — anyone claiming to read your exact inches is estimating from resolution and typical densities. ScreenScope reports only what your browser truthfully exposes, computes nothing on a server, and stores nothing. The numbers are yours, live, and gone when you close the tab — which is exactly how a diagnostic page should behave.</p>
+<h2>A quick self-test you can run in ten seconds</h2>
+<p>Drag your browser window slowly narrower while watching the viewport readout, and the moment the layout of this very page rearranges itself, note the width: you have just found one of its responsive breakpoints with your own hands. Rotate your phone and watch orientation, viewport and screen class flip in unison. Then open this page on the oldest device in the house and compare its card with your main machine's — the two cards, side by side, are a complete lesson in why 'it works on my screen' is the most expensive sentence in software.</p>
+<p>Keep the trick for support calls and family tech duty: 'open ScreenScope and read me the second box' replaces ten minutes of 'what phone is it, which version, are you in the app or the browser' with six exact numbers. Diagnosis begins where guessing ends.</p>
+<h2>Why your two screens disagree</h2>
+<p>Place a laptop beside an external monitor, mirror this page on both, and the readouts will often differ despite showing 'the same' desktop — different native resolutions, different scaling settings, different physical pixel densities negotiating with one operating system. That disagreement is not a fault; it is the modern display ecosystem working as designed, each panel translating the same logical desktop into its own physical reality. The habit worth building is to describe screens by their numbers, not their marketing names: '2560 wide at 200 percent scaling' predicts what a website will do, while 'the big monitor' predicts nothing. ScreenScope gives every screen you own its true description in one glance.</p>
+  <h2>Frequently Asked Questions</h2>
+  <details class="faq"><summary>What is my screen size in inches?</summary><p>Browsers cannot measure physical inches directly. Your resolution and pixel ratio (shown above) identify the panel class — for example, 390×844 CSS pixels at DPR 3 is a modern large iPhone. Check your device settings or model specs for the exact diagonal.</p></details>
+<details class="faq"><summary>What is the difference between screen resolution and viewport?</summary><p>Resolution is the whole display; the viewport is the rectangle the web page actually receives, after browser toolbars, scrollbars and split-screen take their share. Websites respond to the viewport — it is the number designers need.</p></details>
+<details class="faq"><summary>Why is my phone's resolution lower than advertised?</summary><p>It is not — the phone reports CSS pixels, and the device pixel ratio (often 3) multiplies them into the advertised physical pixels. 390×844 at DPR 3 is a 1170×2532 panel.</p></details>
+<details class="faq"><summary>What does device pixel ratio (DPR) mean?</summary><p>How many physical pixels paint one CSS pixel. DPR 2 or 3 makes text and images dramatically sharper, and means images should be supplied at 2–3× their display size to look crisp.</p></details>
+<details class="faq"><summary>How do I tell support what device I am using?</summary><p>Use the 'Copy device info card' button — it packages your screen, viewport, pixel ratio, orientation and browser into one paste-able block, which is exactly what support and developers need.</p></details>
+<details class="faq"><summary>Why do the numbers change when I resize the window?</summary><p>Because the viewport is live: it is defined by your current window, not your hardware. Dragging the window, rotating the device or toggling split-screen all change it, and this page updates instantly.</p></details>
+  </article>
+</section>
+<footer class="mt-6 py-8" style="background:#042F2E;color:#F0FDFA">
+  <div class="mx-auto max-w-6xl px-4 sm:px-6 text-center text-sm">
+    <p class="font-bold text-base">ScreenScope</p>
+    <p class="opacity-80 mt-1">Instantly see your screen size, resolution, viewport, device pixel ratio, orientation and colour depth — updating live as you resize. Copy a shareable device info card.</p>
+    <p class="mt-2"><a href="#top" class="underline">Home</a> · <a href="https://fixoraa.tech" class="underline">More Tools</a></p>
+    <p class="fx-credit" style="text-align:center;font-size:12.5px;opacity:.62;margin:10px auto 2px;letter-spacing:.01em">Made by <a href="https://fixoraa.tech" target="_blank" rel="noopener" style="color:inherit;font-weight:700;text-decoration:underline;text-underline-offset:2px">Fixoraa</a></p>
+  </div>
+</footer>
+<script>
+
+function val(id){return document.getElementById(id);}
+function update(){
+  var dpr=window.devicePixelRatio||1;
+  var items=[
+   ['Screen resolution', screen.width+' × '+screen.height],
+   ['Screen (CSS pixels × DPR)', Math.round(screen.width*dpr)+' × '+Math.round(screen.height*dpr)+' physical'],
+   ['Window size', window.outerWidth+' × '+window.outerHeight],
+   ['Viewport (page area)', window.innerWidth+' × '+window.innerHeight],
+   ['Device pixel ratio', dpr],
+   ['Orientation', screen.width>=screen.height?'Landscape':'Portrait'],
+   ['Colour depth', screen.colorDepth+'-bit'],
+   ['Touch support', ('ontouchstart' in window)?'Yes — max '+ (navigator.maxTouchPoints||0) +' points':'No'],
+   ['Your screen class', screen.width<640?'Small phone':screen.width<1024?'Phone / small tablet':screen.width<1440?'Laptop / tablet':'Desktop / large monitor']];
+  document.getElementById('grid').innerHTML=items.map(function(i){return '<div class="p-3 rounded-lg bg-teal-50"><div class="text-xs font-bold">'+i[0].toUpperCase()+'</div><div class="text-lg font-extrabold break-words">'+i[1]+'</div></div>';}).join('');
+  var devs=[['iPhone SE / 13 / 14',390,844,3],['iPhone Pro Max',430,932,3],['Samsung Galaxy S series',360,780,3],['Google Pixel',412,915,2.6],['iPad',820,1180,2],['Laptop 13″',1280,800,2],['Laptop 15″',1440,900,2],['Full HD monitor',1920,1080,1],['4K monitor',3840,2160,2]];
+  document.getElementById('cmp').innerHTML='<tr><th>Device</th><th>CSS viewport</th><th>DPR</th><th>You</th></tr>'+devs.map(function(d){var you=(window.innerWidth===d[1]&&window.innerHeight===d[2])?'← matches your viewport':'';return '<tr><td>'+d[0]+'</td><td>'+d[1]+' × '+d[2]+'</td><td>'+d[3]+'</td><td>'+you+'</td></tr>';}).join('')+'<tr><td><b>This device</b></td><td><b>'+window.innerWidth+' × '+window.innerHeight+'</b></td><td><b>'+dpr+'</b></td><td>← you are here</td></tr>';
+}
+function copyCard(){
+  var dpr=window.devicePixelRatio||1;
+  var card='My device (via ScreenScope)\nScreen: '+screen.width+'x'+screen.height+'\nViewport: '+window.innerWidth+'x'+window.innerHeight+'\nPixel ratio: '+dpr+'\nOrientation: '+(screen.width>=screen.height?'Landscape':'Portrait')+'\nBrowser: '+navigator.userAgent;
+  if(navigator.clipboard)navigator.clipboard.writeText(card);
+  document.getElementById('copied').textContent='✅ Info card copied — paste it into your message or ticket.';
+}
+window.addEventListener('resize',update); window.addEventListener('orientationchange',update); update();
+
+</script>
+</body>
+</html>
